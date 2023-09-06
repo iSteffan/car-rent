@@ -1,7 +1,7 @@
 // import { useEffect, useState } from 'react';
 
 const Home = () => {
-  // return ();
+  return <p>Hello</p>;
 };
 
 export default Home;
