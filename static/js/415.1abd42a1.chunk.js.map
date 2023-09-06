@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/415.1abd42a1.chunk.js","mappings":"0JAMA,UAJa,WACX,OAAO,uBAAG,SACX,C","sources":["pages/Home.jsx"],"sourcesContent":["// import { useEffect, useState } from 'react';\n\nconst Home = () => {\n  return <p>Hello</p>;\n};\n\nexport default Home;\n"],"names":[],"sourceRoot":""}
