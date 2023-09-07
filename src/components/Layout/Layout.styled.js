@@ -19,9 +19,9 @@ export const Sidebar = styled.aside`
 
   width: 200px;
   height: 100%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   background-color: rgb(0 0 0 / 6%);
-  box-shadow: inset rgba(0, 0, 0, 0.2) 0px 0px 20px 0px,
+  box-shadow: outset rgba(0, 0, 0, 0.2) 0px 0px 20px 0px,
     rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
 `;
 

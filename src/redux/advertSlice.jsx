@@ -23,6 +23,11 @@ const advertsSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchAdverts.pending, handlePending)
+      //   .addCase(fetchAdverts.fulfilled, (state, action) => {
+      //     state.isLoading = false;
+      //     state.error = null;
+      //     state.items = action.payload || [];
+      //   })
       .addCase(fetchAdverts.rejected, handleRejected)
       .addCase(fetchAdverts.fulfilled, handleFetchAdvertsSuccess);
   },
@@ -31,6 +36,6 @@ const advertsSlice = createSlice({
 export const advertsReducer = advertsSlice.reducer;
 
 // Selector
-export const selectContacts = state => state.adverts.items;
-export const selectIsLoading = state => state.adverts.isLoading;
-export const selectError = state => state.adverts.error;
+export const selectAdverts = state => state.items;
+export const selectIsLoading = state => state.isLoading;
+export const selectError = state => state.error;
