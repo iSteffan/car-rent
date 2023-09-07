@@ -23,9 +23,7 @@ const advertsSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchAdverts.pending, handlePending)
-
       .addCase(fetchAdverts.rejected, handleRejected)
-
       .addCase(fetchAdverts.fulfilled, handleFetchAdvertsSuccess);
   },
 });
