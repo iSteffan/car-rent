@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
+  position: relative;
+
   width: 274px;
-  height: 600px;
   outline: 1px solid gray;
 `;
 
