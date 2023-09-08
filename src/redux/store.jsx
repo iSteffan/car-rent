@@ -1,7 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
 import {
-  persistStore,
-  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -11,16 +9,8 @@ import {
 } from 'redux-persist';
 import { advertsReducer } from './advertSlice';
 
-import storage from 'redux-persist/lib/storage';
-
-// const rootReducer = combineReducers({});
-const advertsPersistConfig = {
-  key: 'advert',
-  storage,
-};
-
 export const store = configureStore({
-  reducer: persistReducer(advertsPersistConfig, advertsReducer),
+  reducer: advertsReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
@@ -28,5 +18,3 @@ export const store = configureStore({
       },
     }),
 });
-
-export const persistor = persistStore(store);
