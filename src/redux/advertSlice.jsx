@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAdverts } from './advertOperations';
+import { fetchAdverts, fetchAdvertsPerPage } from './advertOperations';
 
 const handlePending = state => {
   return { ...state, isLoading: true };
@@ -13,6 +13,15 @@ const handleFetchAdvertsSuccess = (state, action) => {
   return { ...state, isLoading: false, error: null, items: action.payload };
 };
 
+const handleFetchAdvertsPerPageSuccess = (state, action) => {
+  return {
+    ...state,
+    isLoading: false,
+    error: null,
+    items: [...state.items, ...action.payload],
+  };
+};
+
 const advertsSlice = createSlice({
   name: 'adverts',
   initialState: {
@@ -24,7 +33,11 @@ const advertsSlice = createSlice({
     builder
       .addCase(fetchAdverts.pending, handlePending)
       .addCase(fetchAdverts.rejected, handleRejected)
-      .addCase(fetchAdverts.fulfilled, handleFetchAdvertsSuccess);
+      .addCase(fetchAdverts.fulfilled, handleFetchAdvertsSuccess)
+
+      .addCase(fetchAdvertsPerPage.pending, handlePending)
+      .addCase(fetchAdvertsPerPage.rejected, handleRejected)
+      .addCase(fetchAdvertsPerPage.fulfilled, handleFetchAdvertsPerPageSuccess);
   },
 });
 
