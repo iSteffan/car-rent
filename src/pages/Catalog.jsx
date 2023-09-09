@@ -7,7 +7,7 @@ import {
 } from 'redux/advertOperations';
 import { selectAdverts, selectAmount } from 'redux/advertSlice';
 import { CarCard } from 'components/CarCard/CarCard';
-import { List } from './Catalog.styled';
+import { List, Container } from './Catalog.styled';
 import { LoadMoreBtn } from 'components/LoadMoreBtn/LoadMoreBtn';
 
 const Catalog = () => {
@@ -28,7 +28,7 @@ const Catalog = () => {
   const itemsAmount = useSelector(selectAmount);
 
   return (
-    <div>
+    <Container>
       <List>
         {items.map(item => (
           <CarCard key={item.id} item={item} />
@@ -38,7 +38,7 @@ const Catalog = () => {
       {itemsAmount.length - items.length > 0 && (
         <LoadMoreBtn onClick={onLoadMoreClick} />
       )}
-    </div>
+    </Container>
   );
 };
 

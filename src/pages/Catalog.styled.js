@@ -8,3 +8,8 @@ export const List = styled.ul`
 
   list-style: none;
 `;
+
+export const Container = styled.div`
+  padding: 20px 20px;
+  margin-left: 150px;
+`;

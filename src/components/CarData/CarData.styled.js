@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Box = styled.div`
   width: 100%;
   height: auto;
-  outline: 1px solid gray;
 `;
 
 export const MainDataBox = styled.div`
@@ -14,7 +13,6 @@ export const MainDataBox = styled.div`
   width: 100%;
   height: 48px;
   color: #121417;
-  outline: 1px solid gray;
 `;
 
 export const DetailsBox = styled.div`
@@ -44,5 +42,4 @@ export const DetailsBox = styled.div`
     border: 1px solid rgba(18, 20, 23, 0.1);
   }
   width: 100%;
-  outline: 1px solid gray;
 `;

@@ -4,7 +4,6 @@ export const CardContainer = styled.div`
   position: relative;
 
   width: 274px;
-  outline: 1px solid gray;
 `;
 
 export const Image = styled.img`

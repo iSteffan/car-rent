@@ -11,13 +11,15 @@ export const Link = styled(StyledLink)`
 `;
 
 export const Wrapper = styled.div`
+  position: relative;
   display: flex;
 `;
 
 export const Sidebar = styled.aside`
+  position: fixed;
   padding: 30px 40px;
 
-  width: 200px;
+  width: 100vwpx;
   height: 100%;
   /* border: 1px solid black; */
   background-color: rgb(0 0 0 / 6%);
