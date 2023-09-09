@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAdverts, fetchAdvertsPerPage } from './advertOperations';
+import {
+  fetchAdverts,
+  fetchAdvertsPerPage,
+  fetchAdvertsAmount,
+} from './advertOperations';
 
 const handlePending = state => {
   return { ...state, isLoading: true };
@@ -22,12 +26,17 @@ const handleFetchAdvertsPerPageSuccess = (state, action) => {
   };
 };
 
+const handleFetchAdvertsAmountSuccess = (state, action) => {
+  return { ...state, isLoading: false, error: null, itemPages: action.payload };
+};
+
 const advertsSlice = createSlice({
   name: 'adverts',
   initialState: {
     items: [],
     isLoading: false,
     error: null,
+    itemPages: [],
   },
   extraReducers: builder => {
     builder
@@ -37,7 +46,11 @@ const advertsSlice = createSlice({
 
       .addCase(fetchAdvertsPerPage.pending, handlePending)
       .addCase(fetchAdvertsPerPage.rejected, handleRejected)
-      .addCase(fetchAdvertsPerPage.fulfilled, handleFetchAdvertsPerPageSuccess);
+      .addCase(fetchAdvertsPerPage.fulfilled, handleFetchAdvertsPerPageSuccess)
+
+      .addCase(fetchAdvertsAmount.pending, handlePending)
+      .addCase(fetchAdvertsAmount.rejected, handleRejected)
+      .addCase(fetchAdvertsAmount.fulfilled, handleFetchAdvertsAmountSuccess);
   },
 });
 
@@ -47,3 +60,4 @@ export const advertsReducer = advertsSlice.reducer;
 export const selectAdverts = state => state.items;
 export const selectIsLoading = state => state.isLoading;
 export const selectError = state => state.error;
+export const selectAmount = state => state.itemPages;

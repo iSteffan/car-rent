@@ -9,9 +9,10 @@ export const Box = styled.div`
 export const MainDataBox = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   width: 100%;
-  height: auto;
+  height: 48px;
   color: #121417;
   outline: 1px solid gray;
 `;
