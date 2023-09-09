@@ -12,7 +12,6 @@ export const Link = styled(StyledLink)`
 
 export const Wrapper = styled.div`
   position: relative;
-  display: flex;
 `;
 
 export const Sidebar = styled.aside`

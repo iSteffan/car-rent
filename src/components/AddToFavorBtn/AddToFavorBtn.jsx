@@ -1,6 +1,6 @@
 import { Icon, Btn } from './AddToFavorBtn.styled';
 
-export const AddToFavorBtn = () => {
+export const AddToFavorBtn = ({ data }) => {
   return (
     <Btn>
       <Icon />
