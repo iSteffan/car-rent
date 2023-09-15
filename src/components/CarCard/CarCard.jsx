@@ -20,7 +20,6 @@ export const CarCard = ({ item }) => {
       {isTaskModalOpened && (
         <ModalWindow data={item} handlerCloseModal={handleToggle}></ModalWindow>
       )}
-      {/* <ModalWindow /> */}
     </li>
   );
 };
