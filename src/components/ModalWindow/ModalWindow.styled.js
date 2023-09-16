@@ -14,6 +14,8 @@ export const Backdrop = styled.div`
 `;
 
 export const ModalContainer = styled.div`
+  padding: 40px;
+
   position: relative;
   width: 514px;
   height: 752px;
@@ -42,4 +44,11 @@ export const CloseIcon = styled(Icon)`
   :hover {
     stroke: rgb(62, 133, 243);
   }
+`;
+
+export const Img = styled.img`
+  width: 100%;
+  height: 248px;
+
+  border-radius: 24px;
 `;

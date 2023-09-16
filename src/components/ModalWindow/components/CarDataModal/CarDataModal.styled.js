@@ -1,17 +1,12 @@
 import styled from 'styled-components';
 
-export const Box = styled.div`
-  width: 100%;
-  height: auto;
-`;
-
 export const MainDataBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin-top: 14px;
+  margin-bottom: 8px;
 
+  font-size: 18px;
+  line-height: 1.33;
   width: 100%;
-  height: 48px;
   color: #121417;
 `;
 
@@ -24,8 +19,6 @@ export const DetailsBox = styled.div`
 
   height: 40px;
   overflow: hidden;
-  /* white-space: nowrap;
-  text-overflow: ellipsis; */
 
   p {
     margin: 0;
@@ -42,4 +35,10 @@ export const DetailsBox = styled.div`
     border: 1px solid rgba(18, 20, 23, 0.1);
   }
   width: 100%;
+`;
+
+export const Description = styled.p`
+  font-family: 'ManropeRegular';
+  font-size: 14px;
+  line-height: 1.42;
 `;

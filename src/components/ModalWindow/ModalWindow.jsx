@@ -4,7 +4,9 @@ import {
   ModalContainer,
   CloseButton,
   CloseIcon,
+  Img,
 } from './ModalWindow.styled';
+import { CarDataModal } from './components/CarDataModal/CarDataModal';
 
 export const ModalWindow = ({ data, handlerCloseModal }) => {
   const modalRoot = document.querySelector('#modal-root');
@@ -19,6 +21,8 @@ export const ModalWindow = ({ data, handlerCloseModal }) => {
         <CloseButton onClick={handlerCloseModal}>
           <CloseIcon />
         </CloseButton>
+        <Img src={data.img} alt={data.description} />
+        <CarDataModal data={data} />
       </ModalContainer>
     </Backdrop>,
     modalRoot

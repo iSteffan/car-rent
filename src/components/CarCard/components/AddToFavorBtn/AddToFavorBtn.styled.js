@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as FavoriteIcon } from '../../img/heart.svg';
+import { ReactComponent as FavoriteIcon } from '../../../../img/heart.svg';
 
 export const Icon = styled(FavoriteIcon)`
   width: 18px;
