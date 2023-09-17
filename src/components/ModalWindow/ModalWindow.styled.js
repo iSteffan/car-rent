@@ -50,5 +50,6 @@ export const Img = styled.img`
   width: 100%;
   height: 248px;
 
+  object-fit: cover;
   border-radius: 24px;
 `;

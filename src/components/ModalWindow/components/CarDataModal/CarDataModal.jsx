@@ -1,4 +1,13 @@
-import { MainDataBox, DetailsBox, Description } from './CarDataModal.styled';
+import {
+  MainDataBox,
+  DetailsBox,
+  Description,
+  Text,
+  List,
+  ListItem,
+  TextAccent,
+  RentBtn,
+} from './CarDataModal.styled';
 import { extractCity, extractCountry } from 'utils/extractor';
 
 export const CarDataModal = ({ data }) => {
@@ -7,19 +16,24 @@ export const CarDataModal = ({ data }) => {
     make,
     model,
     year,
-    // rentalPrice,
+    rentalPrice,
     address,
     // rentalCompany,
     type,
-    // mileage,
-    // functionalities,
+    mileage,
     fuelConsumption,
     engineSize,
     description,
+    accessories,
+    functionalities,
   } = data;
 
+  const accessoriesAndFunctionalities = [...accessories, ...functionalities];
   const city = extractCity(address);
   const country = extractCountry(address);
+  const milesFormat = Number(mileage).toLocaleString('en-US');
+  const priceFormat = rentalPrice.slice(1).trim() + '$';
+  // console.log(priceFormat);
 
   return (
     <>
@@ -29,6 +43,7 @@ export const CarDataModal = ({ data }) => {
           <span style={{ color: '#3470FF' }}> {model}</span>, {year}
         </p>
       </MainDataBox>
+
       <DetailsBox>
         <p>{city}</p>
         <p>{country}</p>
@@ -38,9 +53,41 @@ export const CarDataModal = ({ data }) => {
         <p>Fuel Consumption: {fuelConsumption}</p>
         <p>Engine Size: {engineSize}</p>
       </DetailsBox>
+
+      <Description>
+        <p>{description}</p>
+      </Description>
+
       <div>
-        <Description>{description}</Description>
+        <Text>Accessories and functionalities:</Text>
+        <DetailsBox>
+          {accessoriesAndFunctionalities.map(item => (
+            <p key={item}>{item}</p>
+          ))}
+        </DetailsBox>
       </div>
+
+      <div
+        style={{
+          marginTop: '24px',
+        }}
+      >
+        <Text>Rental Conditions:</Text>
+        <List>
+          <ListItem>
+            Minimum age: <TextAccent>25</TextAccent>
+          </ListItem>
+          <ListItem>Valid driver’s license</ListItem>
+          <ListItem>Security deposite required</ListItem>
+          <ListItem>
+            Mileage: <TextAccent>{milesFormat}</TextAccent>
+          </ListItem>
+          <ListItem>
+            Price: <TextAccent>{priceFormat}</TextAccent>
+          </ListItem>
+        </List>
+      </div>
+      <RentBtn href="tel:+380730000000">Rental car</RentBtn>
     </>
   );
 };
