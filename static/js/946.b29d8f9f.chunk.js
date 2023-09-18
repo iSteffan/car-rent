@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[946],{946:function(e,n,t){t.r(n),t.d(n,{default:function(){return u}});var r,a=t(168),c=t(444).ZP.div(r||(r=(0,a.Z)(["\n  margin-left: 150px;\n  padding: 20px 20px;\n"]))),p=t(184),u=function(){return(0,p.jsx)(c,{children:(0,p.jsx)("p",{children:"Welcome to our main page"})})}}}]);
-//# sourceMappingURL=946.b29d8f9f.chunk.js.map
