@@ -11,15 +11,10 @@ import {
   selectIsLoading,
   selectError,
 } from 'redux/advertSlice';
-import { selectFavorites } from 'redux/favor/favoritesSlice';
 import { CarCard } from 'components/CarCard/CarCard';
 import { List, Container } from './Catalog.styled';
 import { LoadMoreBtn } from 'components/LoadMoreBtn/LoadMoreBtn';
 import { Loader } from 'components/Loader/Loader';
-// import {
-//   addFavor,
-//   // deleteFavor
-// } from 'redux/favor/favoritesSlice';
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -40,13 +35,6 @@ const Catalog = () => {
   const isLoading = useSelector(selectIsLoading);
   const items = useSelector(selectAdverts);
   const itemsAmount = useSelector(selectAmount);
-  const itemsFavorites = useSelector(selectFavorites);
-
-  console.log(itemsFavorites);
-
-  // const doAddFavorite = item => {
-  //   dispatch(addFavor(item));
-  // };
 
   return (
     <Container>
@@ -58,11 +46,7 @@ const Catalog = () => {
 
       <List>
         {items.map(item => (
-          <CarCard
-            key={item.id}
-            item={item}
-            // onClick={doAddFavorite}
-          />
+          <CarCard key={item.id} item={item} />
         ))}
       </List>
 

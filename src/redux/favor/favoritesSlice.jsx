@@ -6,16 +6,16 @@ import { createSlice } from '@reduxjs/toolkit';
 const favoritesSlice = createSlice({
   name: 'favorites',
   initialState: {
-    favorite: [], // Оновлено favorite на favorites
+    favorite: [],
   },
   reducers: {
     addFavor: (state, action) => {
-      state.favorite = [...state.favorite, action.payload]; // Оновлено items на favorites
+      state.favorite = [...state.favorite, action.payload];
     },
     deleteFavor: (state, action) => {
-      state.favorites = state.favorites.filter(
-        item => item.id !== action.payload
-      ); // Оновлено items на favorites
+      state.favorite = state.favorite.filter(
+        item => item.id !== action.payload.id
+      );
     },
   },
 });
