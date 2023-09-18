@@ -36,6 +36,8 @@ const Catalog = () => {
   const items = useSelector(selectAdverts);
   const itemsAmount = useSelector(selectAmount);
 
+  console.log(items);
+
   return (
     <Container>
       {isLoading && (

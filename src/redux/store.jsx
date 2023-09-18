@@ -6,11 +6,17 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
+  persistStore,
 } from 'redux-persist';
 import { advertsReducer } from './advertSlice';
+import { favoritesReducer } from './favor/favoritesSlice';
 
 export const store = configureStore({
-  reducer: advertsReducer,
+  reducer: {
+    adverts: advertsReducer,
+    favorites: favoritesReducer,
+  },
+  // reducer: advertsReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
@@ -18,3 +24,5 @@ export const store = configureStore({
       },
     }),
 });
+
+export const persistor = persistStore(store);

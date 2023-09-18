@@ -57,7 +57,7 @@ const advertsSlice = createSlice({
 export const advertsReducer = advertsSlice.reducer;
 
 // Selector
-export const selectAdverts = state => state.items;
-export const selectIsLoading = state => state.isLoading;
-export const selectError = state => state.error;
-export const selectAmount = state => state.itemPages;
+export const selectAdverts = state => state.adverts.items;
+export const selectIsLoading = state => state.adverts.isLoading;
+export const selectError = state => state.adverts.error;
+export const selectAmount = state => state.adverts.itemPages;
