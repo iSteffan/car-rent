@@ -1,59 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit';
 // import { addToFavorites } from './favorOperations';
-import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+// import { persistReducer } from 'redux-persist';
+// import storage from 'redux-persist/lib/storage';
 
 const favoritesSlice = createSlice({
   name: 'favorites',
   initialState: {
-    items: [],
+    favorite: [], // Оновлено favorite на favorites
   },
   reducers: {
     addFavor: (state, action) => {
-      state.items = [...state.items, action.payload];
+      state.favorite = [...state.favorite, action.payload]; // Оновлено items на favorites
     },
     deleteFavor: (state, action) => {
-      state.items = state.items.filter(item => item.id !== action.payload);
+      state.favorites = state.favorites.filter(
+        item => item.id !== action.payload
+      ); // Оновлено items на favorites
     },
   },
 });
 
-const persistConfig = {
-  key: 'favorites',
-  storage,
-};
-
-export const favoritesReducer = persistReducer(
-  persistConfig,
-  favoritesSlice.reducer
-);
+export const favoritesReducer = favoritesSlice.reducer;
 
 export const { addFavor, deleteFavor } = favoritesSlice.actions;
 
 // Selector
-export const selectFavorites = state => state.items;
-// const favorSlice = {
-//   favorites: [],
-// };
-
-// const rootReducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case 'ADD_TO_FAVORITES':
-//       return {
-//         ...state,
-//         favorites: [...state.favorites, action.payload],
-//       };
-//     default:
-//       return state;
-//   }
-// };
-
-// export default favorSlice;
-
-// export const advertsReducer = advertsSlice.reducer;
-
-// // Selector
-// export const selectAdverts = state => state.items;
-// export const selectIsLoading = state => state.isLoading;
-// export const selectError = state => state.error;
-// export const selectAmount = state => state.itemPages;
+export const selectFavorites = state => state.favorites.favorite;
