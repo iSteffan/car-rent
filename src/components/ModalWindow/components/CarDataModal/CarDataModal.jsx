@@ -33,7 +33,6 @@ export const CarDataModal = ({ data }) => {
   const country = extractCountry(address);
   const milesFormat = Number(mileage).toLocaleString('en-US');
   const priceFormat = rentalPrice.slice(1).trim() + '$';
-  // console.log(priceFormat);
 
   return (
     <>
