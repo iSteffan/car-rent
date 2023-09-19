@@ -15,6 +15,7 @@ import { CarCard } from 'components/CarCard/CarCard';
 import { List, Container } from './Catalog.styled';
 import { LoadMoreBtn } from 'components/LoadMoreBtn/LoadMoreBtn';
 import { Loader } from 'components/Loader/Loader';
+import { SearchForm } from 'components/SearchForm/SearchForm';
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,20 @@ const Catalog = () => {
   const isLoading = useSelector(selectIsLoading);
   const items = useSelector(selectAdverts);
   const itemsAmount = useSelector(selectAmount);
+  // console.log(itemsAmount);
+
+  function uniqueBrand(inputArray) {
+    const uniqueMakes = new Set();
+
+    inputArray.forEach(item => {
+      uniqueMakes.add(item.make);
+    });
+
+    return Array.from(uniqueMakes);
+  }
+  // console.log(uniqueMakesFromArray(itemsAmount));
+
+  const carModels = uniqueBrand(itemsAmount);
 
   return (
     <Container>
@@ -43,7 +58,7 @@ const Catalog = () => {
           <Loader />
         </div>
       )}
-
+      <SearchForm data={carModels} />
       <List>
         {items.map(item => (
           <CarCard key={item.id} item={item} />
@@ -60,3 +75,10 @@ const Catalog = () => {
 };
 
 export default Catalog;
+// const array = [
+//   { make: 'Ford', number: 1 },
+//   { make: 'Mercedes', number: 1 },
+//   { make: 'Mercedes', number: 1 },
+//   { make: 'Toyota', number: 1 },
+//   { make: 'Ford', number: 1 },
+// ];

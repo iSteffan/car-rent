@@ -1,48 +1,58 @@
-import { Formik, Field, Form } from 'formik';
-// import {
-//   // Label,
-//   // Form,
-//   // Field,
-//   // Btn,
-// } from './SearchForm.styled';
+import {
+  Formik,
+  // Field,
+  Form,
+} from 'formik';
+import {
+  Label,
+  // Form,
+  Field,
+  BrandContainer,
+  Datalist,
+  // Btn,
+} from './SearchForm.styled';
 
-export const SearchForm = ({ onSave }) => {
+export const SearchForm = ({ onSave, data }) => {
   return (
     <Formik
       initialValues={{
-        name: '',
-        phone: '',
+        brand: '',
       }}
       onSubmit={(values, actions) => {
         onSave({
           ...values,
-          // id: nanoid()
         });
         actions.resetForm();
       }}
     >
       <Form>
-        <div>
-          <label htmlFor="select1">Car brand</label>
-          <Field as="select" name="select1" id="select1">
-            <option value="" label="Виберіть" />
-            {/* {selectOptions.map((option, index) => (
-              <option key={index} value={option} label={option} />
-            ))} */}
-          </Field>
-        </div>
-        <div>
-          <label htmlFor="input1">Сar mileage / km:</label>
-          <Field type="text" name="input1" id="input1" />
-        </div>
-
-        <div>
-          <label htmlFor="input2">Сar mileage / km</label>
-          <Field type="text" name="input2" id="input2" />
-        </div>
-
+        <BrandContainer>
+          <Label htmlFor="brand">Car brand</Label>
+          <Field
+            as="input"
+            name="brand"
+            id="brand"
+            list="carBrands"
+            placeholder="Enter the text"
+          />
+          <Datalist id="carBrands" style={{ width: '224px', height: '272px' }}>
+            {data.map(option => (
+              <option key={option} value={option} />
+            ))}
+          </Datalist>
+        </BrandContainer>
         <button type="submit">Search</button>
       </Form>
     </Formik>
   );
 };
+
+// <div>
+//   <label htmlFor="input2">Сar mileage / km</label>
+//   <Field type="text" name="input2" id="input2" />
+// </div>
+
+// <div>
+//   <label htmlFor="input3">Сar mileage / km</label>
+//   <Field type="text" name="input3" id="input3" />
+// </div>
