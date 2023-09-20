@@ -13,6 +13,10 @@ import {
   Datalist,
   Container,
   Btn,
+  Fieldset,
+  MileageBox,
+  FieldMileageFrom,
+  FieldMileageTo,
   // Btn,
 } from './SearchForm.styled';
 
@@ -22,13 +26,20 @@ export const SearchForm = ({ onSave, data, priceRange }) => {
       initialValues={{
         brand: '',
         rentPrice: '',
+        fromMileage: '',
+        toMileage: '',
       }}
       onSubmit={(values, actions) => {
-        onSave({
-          ...values,
-        });
+        onSave({ ...values });
         actions.resetForm();
       }}
+      // onSubmit={(values, actions) => {
+      //   onSave(values);
+      //   // onSave({
+      //   //   ...values,
+      //   // });
+      //   actions.resetForm();
+      // }}
     >
       <Form>
         <Container>
@@ -68,19 +79,28 @@ export const SearchForm = ({ onSave, data, priceRange }) => {
               ))}
             </Datalist>
           </PriceContainer>
+          <Fieldset>
+            <Label htmlFor="fromMileage toMileage">Сar mileage / km</Label>
+            <MileageBox>
+              <FieldMileageFrom
+                as="input"
+                type="number"
+                name="fromMileage"
+                id="fromMileage"
+                placeholder="From"
+              />
+              <FieldMileageTo
+                as="input"
+                type="number"
+                name="toMileage"
+                id="toMileage"
+                placeholder="To"
+              />
+            </MileageBox>
+          </Fieldset>
           <Btn type="submit">Search</Btn>
         </Container>
       </Form>
     </Formik>
   );
 };
-
-// <div>
-//   <label htmlFor="input2">Сar mileage / km</label>
-//   <Field type="text" name="input2" id="input2" />
-// </div>
-
-// <div>
-//   <label htmlFor="input3">Сar mileage / km</label>
-//   <Field type="text" name="input3" id="input3" />
-// </div>

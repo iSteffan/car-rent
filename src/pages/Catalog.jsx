@@ -45,6 +45,9 @@ const Catalog = () => {
   const carModels = findUniqueBrand(itemsAmount);
   const rentalPriceRange = extractRentalPricesInRange(itemsAmount);
   // console.log(extractRentalPricesInRange(itemsAmount));
+  const searchFilter = searchParam => {
+    console.log(searchParam);
+  };
 
   return (
     <Container>
@@ -53,7 +56,11 @@ const Catalog = () => {
           <Loader />
         </div>
       )}
-      <SearchForm data={carModels} priceRange={rentalPriceRange} />
+      <SearchForm
+        data={carModels}
+        priceRange={rentalPriceRange}
+        onSave={searchFilter}
+      />
       <List>
         {items.map(item => (
           <CarCard key={item.id} item={item} />

@@ -17,10 +17,45 @@ export const Label = styled.label`
 
 export const Field = styled(FormikInput)`
   padding: 14px 18px;
+
   font-size: 18px;
   line-height: 1.11;
   border: none;
   border-radius: 14px;
+  background: #f7f7fb;
+
+  &::placeholder {
+    color: #121417;
+  }
+`;
+
+export const FieldMileageFrom = styled(FormikInput)`
+  padding: 14px 24px;
+
+  width: 160px;
+  font-size: 18px;
+  line-height: 1.11;
+  border: none;
+  border-bottom-left-radius: 14px;
+  border-top-left-radius: 14px;
+  border-right: 1px solid rgba(138, 138, 137, 0.2);
+
+  background: #f7f7fb;
+
+  &::placeholder {
+    color: #121417;
+  }
+`;
+
+export const FieldMileageTo = styled(FormikInput)`
+  padding: 14px 24px;
+
+  width: 160px;
+  font-size: 18px;
+  line-height: 1.11;
+  border: none;
+  border-bottom-right-radius: 14px;
+  border-top-right-radius: 14px;
   background: #f7f7fb;
 
   &::placeholder {
@@ -73,4 +108,16 @@ export const Btn = styled.button`
   &:focus {
     background: #0b44cd;
   }
+`;
+
+export const Fieldset = styled.fieldset`
+  margin: 0;
+  padding: 0;
+  border: none;
+`;
+
+export const MileageBox = styled.div`
+  display: flex;
+
+  width: 320px;
 `;
