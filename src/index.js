@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
       <BrowserRouter basename="/car-rent">
         <PersistGate loading={null} persistor={persistor}>
-          <App />{' '}
+          <App />
         </PersistGate>
       </BrowserRouter>
     </Provider>

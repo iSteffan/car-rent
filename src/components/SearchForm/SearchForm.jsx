@@ -1,14 +1,18 @@
 import {
   Formik,
   // Field,
-  Form,
+  // Form,
 } from 'formik';
 import {
   Label,
+  Form,
   // Form,
   Field,
   BrandContainer,
+  PriceContainer,
   Datalist,
+  Container,
+  Btn,
   // Btn,
 } from './SearchForm.styled';
 
@@ -17,6 +21,7 @@ export const SearchForm = ({ onSave, data }) => {
     <Formik
       initialValues={{
         brand: '',
+        rentPrice: '',
       }}
       onSubmit={(values, actions) => {
         onSave({
@@ -26,22 +31,45 @@ export const SearchForm = ({ onSave, data }) => {
       }}
     >
       <Form>
-        <BrandContainer>
-          <Label htmlFor="brand">Car brand</Label>
-          <Field
-            as="input"
-            name="brand"
-            id="brand"
-            list="carBrands"
-            placeholder="Enter the text"
-          />
-          <Datalist id="carBrands" style={{ width: '224px', height: '272px' }}>
-            {data.map(option => (
-              <option key={option} value={option} />
-            ))}
-          </Datalist>
-        </BrandContainer>
-        <button type="submit">Search</button>
+        <Container>
+          <BrandContainer>
+            <Label htmlFor="brand">Car brand</Label>
+            <Field
+              as="input"
+              name="brand"
+              id="brand"
+              list="carBrands"
+              placeholder="Enter the text"
+            />
+            <Datalist
+              id="carBrands"
+              style={{ width: '224px', height: '272px' }}
+            >
+              {data.map(option => (
+                <option key={option} value={option} />
+              ))}
+            </Datalist>
+          </BrandContainer>
+          <PriceContainer>
+            <Label htmlFor="brand">Price/ 1 hour</Label>
+            <Field
+              as="input"
+              name="rentPrice"
+              id="rentPrice"
+              list="carBrands"
+              placeholder="To $"
+            />
+            <Datalist
+              id="carBrands"
+              style={{ width: '224px', height: '272px' }}
+            >
+              {data.map(option => (
+                <option key={option} value={option} />
+              ))}
+            </Datalist>
+          </PriceContainer>
+          <Btn type="submit">Search</Btn>
+        </Container>
       </Form>
     </Formik>
   );
