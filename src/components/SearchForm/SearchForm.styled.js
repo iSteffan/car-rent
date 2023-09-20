@@ -65,6 +65,10 @@ export const FieldMileageTo = styled(FormikInput)`
 
 export const Form = styled(FormikForm)`
   margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 858px;
 `;
 
 export const BrandContainer = styled.div`
@@ -113,6 +117,8 @@ export const Btn = styled.button`
 export const Fieldset = styled.fieldset`
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
   border: none;
 `;
 

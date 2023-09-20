@@ -38,7 +38,7 @@ const Catalog = () => {
   const isLoading = useSelector(selectIsLoading);
   const items = useSelector(selectAdverts);
   const itemsAmount = useSelector(selectAmount);
-  console.log(itemsAmount);
+  // console.log(itemsAmount);
 
   // console.log(uniqueMakesFromArray(itemsAmount));
 
