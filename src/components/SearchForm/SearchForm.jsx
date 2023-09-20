@@ -16,7 +16,7 @@ import {
   // Btn,
 } from './SearchForm.styled';
 
-export const SearchForm = ({ onSave, data }) => {
+export const SearchForm = ({ onSave, data, priceRange }) => {
   return (
     <Formik
       initialValues={{
@@ -51,19 +51,19 @@ export const SearchForm = ({ onSave, data }) => {
             </Datalist>
           </BrandContainer>
           <PriceContainer>
-            <Label htmlFor="brand">Price/ 1 hour</Label>
+            <Label htmlFor="rentPrice">Price/ 1 hour</Label>
             <Field
               as="input"
               name="rentPrice"
               id="rentPrice"
-              list="carBrands"
+              list="priceRange"
               placeholder="To $"
             />
             <Datalist
-              id="carBrands"
+              id="priceRange"
               style={{ width: '224px', height: '272px' }}
             >
-              {data.map(option => (
+              {priceRange.map(option => (
                 <option key={option} value={option} />
               ))}
             </Datalist>
