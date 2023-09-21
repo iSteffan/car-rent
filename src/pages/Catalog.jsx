@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchAdverts,
@@ -22,6 +22,8 @@ import { extractRentalPricesInRange } from 'utils/extractRentalPricesInRange';
 const Catalog = () => {
   const dispatch = useDispatch();
   const [page, setPage] = useState(2);
+  const [filteredItems, setFilteredItems] = useState(null);
+  const [isFiltering, setIsFiltering] = useState(false);
 
   useEffect(() => {
     dispatch(fetchAdverts());
@@ -34,43 +36,68 @@ const Catalog = () => {
   };
 
   const error = useSelector(selectError);
-
   const isLoading = useSelector(selectIsLoading);
   const items = useSelector(selectAdverts);
   const itemsAmount = useSelector(selectAmount);
-  // console.log(itemsAmount);
-
-  // console.log(uniqueMakesFromArray(itemsAmount));
 
   const carModels = findUniqueBrand(itemsAmount);
   const rentalPriceRange = extractRentalPricesInRange(itemsAmount);
-  // console.log(extractRentalPricesInRange(itemsAmount));
+
   const searchFilter = searchParam => {
-    console.log(searchParam);
+    if (!searchParam) {
+      setIsFiltering(false);
+      return false;
+    }
+
+    const filteredCars = itemsAmount.filter(
+      car => car.make === searchParam.make
+    );
+
+    const targetRentalPrice = parseInt(
+      searchParam.rentalPrice.replace('$', ''),
+      10
+    );
+
+    const filteredByRentalPrice = filteredCars.filter(
+      car => parseInt(car.rentalPrice.replace('$', ''), 10) <= targetRentalPrice
+    );
+
+    const filteredByMileage = filteredByRentalPrice.filter(
+      car =>
+        car.mileage >= parseInt(searchParam.fromMileage, 10) &&
+        car.mileage <= parseInt(searchParam.toMileage, 10)
+    );
+
+    const sortedCars = filteredByMileage.sort((a, b) => a.mileage - b.mileage);
+
+    setFilteredItems(sortedCars);
+    setIsFiltering(true);
+
+    return sortedCars;
   };
+
+  const renderItems = filteredItems ? filteredItems : items;
 
   return (
     <Container>
-      {isLoading && (
-        <div style={{ marginTop: '200px' }}>
-          <Loader />
-        </div>
-      )}
       <SearchForm
         data={carModels}
         priceRange={rentalPriceRange}
         onSave={searchFilter}
       />
+      {isLoading && (
+        <div style={{ marginTop: '200px' }}>
+          <Loader />
+        </div>
+      )}
       <List>
-        {items.map(item => (
+        {renderItems.map(item => (
           <CarCard key={item.id} item={item} />
         ))}
       </List>
-
-      {itemsAmount.length - items.length > 0 && (
+      {!isFiltering && itemsAmount.length - items.length > 0 && (
         <LoadMoreBtn onClick={onLoadMoreClick} />
       )}
-
       {error && <p>Oops, something wrong is going on...</p>}
     </Container>
   );

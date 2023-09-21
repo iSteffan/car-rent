@@ -24,8 +24,8 @@ export const SearchForm = ({ onSave, data, priceRange }) => {
   return (
     <Formik
       initialValues={{
-        brand: '',
-        rentPrice: '',
+        make: '',
+        rentalPrice: '',
         fromMileage: '',
         toMileage: '',
       }}
@@ -40,10 +40,10 @@ export const SearchForm = ({ onSave, data, priceRange }) => {
       <Form>
         <Container>
           <BrandContainer>
-            <Label htmlFor="brand">Car brand</Label>
+            <Label htmlFor="make">Car brand</Label>
             <Field
-              name="brand"
-              id="brand"
+              name="make"
+              id="make"
               list="carBrands"
               placeholder="Enter the text"
             />
@@ -57,10 +57,10 @@ export const SearchForm = ({ onSave, data, priceRange }) => {
             </Datalist>
           </BrandContainer>
           <PriceContainer>
-            <Label htmlFor="rentPrice">Price/ 1 hour</Label>
+            <Label htmlFor="rentalPrice">Price/ 1 hour</Label>
             <Field
-              name="rentPrice"
-              id="rentPrice"
+              name="rentalPrice"
+              id="rentalPrice"
               list="priceRange"
               placeholder="To $"
             />
