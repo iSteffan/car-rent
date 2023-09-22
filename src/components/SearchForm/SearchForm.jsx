@@ -1,12 +1,7 @@
-import {
-  Formik,
-  // Field,
-  // Form,
-} from 'formik';
+import { Formik } from 'formik';
 import {
   Label,
   Form,
-  // Form,
   Field,
   BrandContainer,
   PriceContainer,
@@ -17,8 +12,20 @@ import {
   MileageBox,
   FieldMileageFrom,
   FieldMileageTo,
-  // Btn,
+  ErrorMessage,
 } from './SearchForm.styled';
+import * as Yup from 'yup';
+
+const FormSchema = Yup.object().shape({
+  make: Yup.string().required('Required field!'),
+  rentalPrice: Yup.number()
+    .positive('Must be > 0!')
+    .required('Required field!'),
+  fromMileage: Yup.number()
+    .positive('Must be > 0!')
+    .required('Required field!'),
+  toMileage: Yup.number().positive('Must be > 0!').required('Required field!'),
+});
 
 export const SearchForm = ({ onSave, data, priceRange }) => {
   return (
@@ -29,13 +36,11 @@ export const SearchForm = ({ onSave, data, priceRange }) => {
         fromMileage: '',
         toMileage: '',
       }}
+      validationSchema={FormSchema}
       onSubmit={(values, actions) => {
         onSave({ ...values });
         actions.resetForm();
       }}
-      // onSubmit={values => {
-      //   console.log(values);
-      // }}
     >
       <Form>
         <Container>
@@ -47,6 +52,7 @@ export const SearchForm = ({ onSave, data, priceRange }) => {
               list="carBrands"
               placeholder="Enter the text"
             />
+            <ErrorMessage name="make" component="div" />
             <Datalist
               id="carBrands"
               style={{ width: '224px', height: '272px' }}
@@ -64,6 +70,7 @@ export const SearchForm = ({ onSave, data, priceRange }) => {
               list="priceRange"
               placeholder="To $"
             />
+            <ErrorMessage name="rentalPrice" component="div" />
             <Datalist
               id="priceRange"
               style={{ width: '224px', height: '272px' }}
@@ -81,10 +88,20 @@ export const SearchForm = ({ onSave, data, priceRange }) => {
                 id="fromMileage"
                 placeholder="From"
               />
+              <ErrorMessage
+                name="fromMileage"
+                component="div"
+                style={{ top: '49px' }}
+              />
               <FieldMileageTo
                 name="toMileage"
                 id="toMileage"
                 placeholder="To"
+              />
+              <ErrorMessage
+                name="toMileage"
+                component="div"
+                style={{ top: '49px', left: '160px' }}
               />
             </MileageBox>
           </Fieldset>

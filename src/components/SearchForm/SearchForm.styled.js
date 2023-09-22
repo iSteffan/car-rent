@@ -1,5 +1,17 @@
 import styled from 'styled-components';
-import { Form as FormikForm, Field as FormikInput } from 'formik';
+import {
+  Form as FormikForm,
+  Field as FormikInput,
+  ErrorMessage as FormikErrorMessage,
+} from 'formik';
+
+export const ErrorMessage = styled(FormikErrorMessage)`
+  position: absolute;
+  top: 75px;
+  left: 0;
+  font-size: 12px;
+  color: red;
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -72,6 +84,7 @@ export const Form = styled(FormikForm)`
 `;
 
 export const BrandContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
 
@@ -79,6 +92,7 @@ export const BrandContainer = styled.div`
 `;
 
 export const PriceContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
 
@@ -123,6 +137,7 @@ export const Fieldset = styled.fieldset`
 `;
 
 export const MileageBox = styled.div`
+  position: relative;
   display: flex;
 
   width: 320px;
