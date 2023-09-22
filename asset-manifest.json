@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/car-rent/static/css/main.64bdc634.css",
-    "main.js": "/car-rent/static/js/main.3ccea482.js",
+    "main.js": "/car-rent/static/js/main.05c97d60.js",
     "static/js/946.f052b306.chunk.js": "/car-rent/static/js/946.f052b306.chunk.js",
-    "static/js/358.cdf0443e.chunk.js": "/car-rent/static/js/358.cdf0443e.chunk.js",
+    "static/js/358.c0d7a375.chunk.js": "/car-rent/static/js/358.c0d7a375.chunk.js",
     "static/js/395.14531398.chunk.js": "/car-rent/static/js/395.14531398.chunk.js",
-    "static/js/860.defbbcc7.chunk.js": "/car-rent/static/js/860.defbbcc7.chunk.js",
+    "static/js/496.070a3531.chunk.js": "/car-rent/static/js/496.070a3531.chunk.js",
     "static/js/99.33ee5dfa.chunk.js": "/car-rent/static/js/99.33ee5dfa.chunk.js",
     "static/media/Manrope-SemiBold.ttf": "/car-rent/static/media/Manrope-SemiBold.310f108cc524df0e5ffc.ttf",
     "static/media/Manrope-Medium.ttf": "/car-rent/static/media/Manrope-Medium.08894ccb04665d1a9d53.ttf",
@@ -15,15 +15,15 @@
     "static/media/heart.svg": "/car-rent/static/media/heart.60fbfd0df14477ba4a1db397ad4768a4.svg",
     "static/media/x.svg": "/car-rent/static/media/x.b46085ba9e44bf2f538b3f0a523c7427.svg",
     "main.64bdc634.css.map": "/car-rent/static/css/main.64bdc634.css.map",
-    "main.3ccea482.js.map": "/car-rent/static/js/main.3ccea482.js.map",
+    "main.05c97d60.js.map": "/car-rent/static/js/main.05c97d60.js.map",
     "946.f052b306.chunk.js.map": "/car-rent/static/js/946.f052b306.chunk.js.map",
-    "358.cdf0443e.chunk.js.map": "/car-rent/static/js/358.cdf0443e.chunk.js.map",
+    "358.c0d7a375.chunk.js.map": "/car-rent/static/js/358.c0d7a375.chunk.js.map",
     "395.14531398.chunk.js.map": "/car-rent/static/js/395.14531398.chunk.js.map",
-    "860.defbbcc7.chunk.js.map": "/car-rent/static/js/860.defbbcc7.chunk.js.map",
+    "496.070a3531.chunk.js.map": "/car-rent/static/js/496.070a3531.chunk.js.map",
     "99.33ee5dfa.chunk.js.map": "/car-rent/static/js/99.33ee5dfa.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.64bdc634.css",
-    "static/js/main.3ccea482.js"
+    "static/js/main.05c97d60.js"
   ]
 }
