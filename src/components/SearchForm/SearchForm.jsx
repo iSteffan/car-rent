@@ -23,8 +23,26 @@ const FormSchema = Yup.object().shape({
     .required('Required field!'),
   fromMileage: Yup.number()
     .positive('Must be > 0!')
+    .test(
+      'is-less-than-toMileage',
+      'From must be less than To',
+      function (fromMileage) {
+        const toMileage = this.parent.toMileage;
+        return fromMileage < toMileage;
+      }
+    )
     .required('Required field!'),
-  toMileage: Yup.number().positive('Must be > 0!').required('Required field!'),
+  toMileage: Yup.number()
+    .positive('Must be > 0!')
+    .test(
+      'is-greater-than-fromMileage',
+      'To must be greater than From',
+      function (toMileage) {
+        const fromMileage = this.parent.fromMileage;
+        return toMileage > fromMileage;
+      }
+    )
+    .required('Required field!'),
 });
 
 export const SearchForm = ({ onSave, data, priceRange }) => {
@@ -91,7 +109,7 @@ export const SearchForm = ({ onSave, data, priceRange }) => {
               <ErrorMessage
                 name="fromMileage"
                 component="div"
-                style={{ top: '49px' }}
+                style={{ top: '49px', width: '160px' }}
               />
               <FieldMileageTo
                 name="toMileage"
