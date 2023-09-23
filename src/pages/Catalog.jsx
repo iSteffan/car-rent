@@ -18,12 +18,12 @@ import { Loader } from 'components/Loader/Loader';
 import { SearchForm } from 'components/SearchForm/SearchForm';
 import { findUniqueBrand } from 'utils/findUniqueBrand';
 import { extractRentalPricesInRange } from 'utils/extractRentalPricesInRange';
+import { searchFilter } from 'utils/searchFilter';
 
 const Catalog = () => {
   const dispatch = useDispatch();
   const [page, setPage] = useState(2);
   const [filteredItems, setFilteredItems] = useState(null);
-  const [isFiltering, setIsFiltering] = useState(false);
 
   useEffect(() => {
     dispatch(fetchAdverts());
@@ -43,37 +43,9 @@ const Catalog = () => {
   const carModels = findUniqueBrand(itemsAmount);
   const rentalPriceRange = extractRentalPricesInRange(itemsAmount);
 
-  const searchFilter = searchParam => {
-    if (!searchParam) {
-      setIsFiltering(false);
-      return false;
-    }
-
-    const filteredCars = itemsAmount.filter(
-      car => car.make === searchParam.make
-    );
-
-    const targetRentalPrice = parseInt(
-      searchParam.rentalPrice.replace('$', ''),
-      10
-    );
-
-    const filteredByRentalPrice = filteredCars.filter(
-      car => parseInt(car.rentalPrice.replace('$', ''), 10) <= targetRentalPrice
-    );
-
-    const filteredByMileage = filteredByRentalPrice.filter(
-      car =>
-        car.mileage >= parseInt(searchParam.fromMileage, 10) &&
-        car.mileage <= parseInt(searchParam.toMileage, 10)
-    );
-
-    const sortedCars = filteredByMileage.sort((a, b) => a.mileage - b.mileage);
-
-    setFilteredItems(sortedCars);
-    setIsFiltering(true);
-
-    return sortedCars;
+  const handleSearch = searchParam => {
+    const filteredCars = searchFilter(itemsAmount, searchParam);
+    setFilteredItems(filteredCars);
   };
 
   const renderItems = filteredItems ? filteredItems : items;
@@ -83,21 +55,29 @@ const Catalog = () => {
       <SearchForm
         data={carModels}
         priceRange={rentalPriceRange}
-        onSave={searchFilter}
+        onSave={handleSearch}
       />
+
       {isLoading && (
         <div style={{ marginTop: '200px' }}>
           <Loader />
         </div>
       )}
-      <List>
-        {renderItems.map(item => (
-          <CarCard key={item.id} item={item} />
-        ))}
-      </List>
-      {!isFiltering && itemsAmount.length - items.length > 0 && (
+
+      {filteredItems !== null && filteredItems.length === 0 ? (
+        <p>Your search parameters did not match any available cars.</p>
+      ) : (
+        <List>
+          {renderItems.map(item => (
+            <CarCard key={item.id} item={item} />
+          ))}
+        </List>
+      )}
+
+      {!filteredItems && itemsAmount.length - items.length > 0 && (
         <LoadMoreBtn onClick={onLoadMoreClick} />
       )}
+
       {error && <p>Oops, something wrong is going on...</p>}
     </Container>
   );
