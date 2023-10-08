@@ -16,3 +16,7 @@ Clicking the "Learn more" button opens a modal window with detailed information 
 
 I use the mockapi service as my database with the following data structure
 ![image](https://github.com/iSteffan/car-rent/assets/112157511/d3f14366-c461-4a30-bf6c-0f462242a5f2)
+
+P.S. Sometimes cloudinary API works incorrect. Thats why you might see next error:
+![image](https://github.com/iSteffan/car-rent/assets/112157511/06c2142b-5354-42a8-9b64-ee5385a499b5)
+
