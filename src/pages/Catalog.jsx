@@ -65,7 +65,9 @@ const Catalog = () => {
       )}
 
       {filteredItems !== null && filteredItems.length === 0 ? (
-        <p>Your search parameters did not match any available cars.</p>
+        <p style={{ textAlign: 'center' }}>
+          Your search parameters did not match any available cars.
+        </p>
       ) : (
         <List>
           {renderItems.map(item => (
