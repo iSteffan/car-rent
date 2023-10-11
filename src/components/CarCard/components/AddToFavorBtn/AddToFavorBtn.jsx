@@ -1,8 +1,11 @@
 import { Icon, Btn, ActiveIcon } from './AddToFavorBtn.styled';
-import { addFavor, deleteFavor } from 'redux/favor/favoritesSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFavorites } from 'redux/favor/favoritesSlice';
-import { checkFavorBtnStatus } from 'utils/checkFavorBtnStatus';
+import {
+  selectFavorites,
+  addFavor,
+  deleteFavor,
+} from '../../../../redux/favor/favoritesSlice';
+import { checkFavorBtnStatus } from '../../../../utils/checkFavorBtnStatus';
 
 export const AddToFavorBtn = ({ data }) => {
   const dispatch = useDispatch();

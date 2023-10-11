@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
-import { selectFavorites } from 'redux/favor/favoritesSlice';
-import { CarCard } from 'components/CarCard/CarCard';
+import { selectFavorites } from '../redux/favor/favoritesSlice';
+import { CarCard } from '../components/CarCard/CarCard';
 import { List, Container } from './Catalog.styled';
 import { EmptyText } from './Favorites.styled';
 

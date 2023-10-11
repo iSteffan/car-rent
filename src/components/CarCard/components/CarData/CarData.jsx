@@ -1,5 +1,5 @@
 import { Box, MainDataBox, DetailsBox } from './CarData.styled';
-import { extractCity, extractCountry } from 'utils/extractor';
+import { extractCity, extractCountry } from '../../../../utils/extractor';
 
 export const CarData = ({ data }) => {
   const {

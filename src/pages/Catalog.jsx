@@ -4,21 +4,21 @@ import {
   fetchAdverts,
   fetchAdvertsPerPage,
   fetchAdvertsAmount,
-} from 'redux/advertOperations';
+} from '../redux/advertOperations';
 import {
   selectAdverts,
   selectAmount,
   selectIsLoading,
   selectError,
-} from 'redux/advertSlice';
-import { CarCard } from 'components/CarCard/CarCard';
+} from '../redux/advertSlice';
+import { CarCard } from '../components/CarCard/CarCard';
 import { List, Container } from './Catalog.styled';
-import { LoadMoreBtn } from 'components/LoadMoreBtn/LoadMoreBtn';
-import { Loader } from 'components/Loader/Loader';
-import { SearchForm } from 'components/SearchForm/SearchForm';
-import { findUniqueBrand } from 'utils/findUniqueBrand';
-import { extractRentalPricesInRange } from 'utils/extractRentalPricesInRange';
-import { searchFilter } from 'utils/searchFilter';
+import { LoadMoreBtn } from '../components/LoadMoreBtn/LoadMoreBtn';
+import { Loader } from '../components/Loader/Loader';
+import { SearchForm } from '../components/SearchForm/SearchForm';
+import { findUniqueBrand } from '../utils/findUniqueBrand';
+import { extractRentalPricesInRange } from '../utils/extractRentalPricesInRange';
+import { searchFilter } from '../utils/searchFilter';
 
 const Catalog = () => {
   const dispatch = useDispatch();

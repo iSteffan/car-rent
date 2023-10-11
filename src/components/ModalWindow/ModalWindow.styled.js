@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as Icon } from 'img/x.svg';
+// import { ReactComponent as Icon } from 'img/x.svg';
 
 export const Backdrop = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
@@ -36,15 +36,15 @@ export const CloseButton = styled.button`
   cursor: pointer;
 `;
 
-export const CloseIcon = styled(Icon)`
-  stroke: #121417;
-  width: 24px;
-  height: 24px;
-  transition: stroke 250ms linear 0s;
-  :hover {
-    stroke: rgb(62, 133, 243);
-  }
-`;
+// export const CloseIcon = styled(Icon)`
+//   stroke: #121417;
+//   width: 24px;
+//   height: 24px;
+//   transition: stroke 250ms linear 0s;
+//   :hover {
+//     stroke: rgb(62, 133, 243);
+//   }
+// `;
 
 export const Img = styled.img`
   width: 100%;

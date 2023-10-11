@@ -8,7 +8,7 @@ import {
   TextAccent,
   RentBtn,
 } from './CarDataModal.styled';
-import { extractCity, extractCountry } from 'utils/extractor';
+import { extractCity, extractCountry } from '../../../../utils/extractor';
 
 export const CarDataModal = ({ data }) => {
   const {
