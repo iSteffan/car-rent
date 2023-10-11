@@ -3,7 +3,7 @@ import {
   Backdrop,
   ModalContainer,
   CloseButton,
-  // CloseIcon,
+  CloseIcon,
   Img,
 } from './ModalWindow.styled';
 import { CarDataModal } from './components/CarDataModal/CarDataModal';
@@ -19,7 +19,7 @@ export const ModalWindow = ({ data, handlerCloseModal }) => {
     <Backdrop onClick={handleBackdropClick}>
       <ModalContainer>
         <CloseButton onClick={handlerCloseModal}>
-          {/* <CloseIcon /> */}
+          <CloseIcon />
         </CloseButton>
         <Img src={data.img} alt={data.description} />
         <CarDataModal data={data} />
